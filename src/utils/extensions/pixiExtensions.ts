@@ -2,7 +2,7 @@ import {Vector} from "../math/vector";
 import * as PIXI from "pixi.js";
 import {Container} from "pixi.js";
 import {areRectanglesOverlapping, normalizeRectangle, rectangle as createRectangle} from "../math/rectangle";
-import {Ticker} from "../../asshat/ticker";
+import {AsshatTicker} from "../../asshat/ticker";
 
 declare global {
     namespace PIXI {
@@ -12,15 +12,16 @@ declare global {
             withStep(step: () => void): this;
 
             collides(displayObjects: DisplayObject | DisplayObject[], offset?: Vector): boolean;
-            rectangle: Rectangle;
-            destroyed: boolean;
-            ticker: Ticker;
+
+            readonly rectangle: Rectangle;
+            readonly destroyed: boolean;
+            readonly ticker: AsshatTicker;
         }
 
         export interface Container {
             removeAllChildren();
             addChild<T extends DisplayObject>(child: T): T;
-            withTicker(ticker: Ticker): this;
+            withTicker(ticker: AsshatTicker): this;
         }
     }
 }

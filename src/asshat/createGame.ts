@@ -3,15 +3,18 @@ import * as PIXI from "pixi.js";
 import {make2dCanvasSink} from "../utils/browser/make2dCanvasSink";
 import {environment} from "../utils/environment";
 import {advanceKeyListener, startKeyListener} from "../utils/browser/key";
-import {Ticker} from "./ticker";
+import {AsshatTicker} from "./ticker";
+import {applyExtensions} from "../utils/applyExtensions";
 
 type GameOptions = ConstructorParameters<typeof Application>[0]
     & { targetFps?: number, hideCursor?: boolean, allowBlurring?: boolean };
 
-export type Game = ReturnType<typeof createGame>;
+export type AsshatGame = ReturnType<typeof createGame>;
 
 export function createGame(options: GameOptions)
 {
+    applyExtensions();
+
     if (!options.allowBlurring)
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
@@ -34,7 +37,7 @@ image-rendering: pixelated;`;
             canvasElement = make2dCanvasSink(app.view);
     }
 
-    const ticker = new Ticker();
+    const ticker = new AsshatTicker();
 
     startKeyListener();
 
@@ -45,7 +48,7 @@ image-rendering: pixelated;`;
 
     return {
         canvasElement,
-        stage: app.stage,
+        stage: app.stage.withTicker(ticker),
         ticker,
         get width() {
             return app.renderer.width;
