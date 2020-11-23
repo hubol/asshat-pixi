@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A base project for browser games",
   "scripts": {
-    "serve": "parcel src/index.html --open"
+    "serve": "parcel src/index.html --open",
+    "gen:textures": "generate-textures assets/images src/textures.ts"
   },
   "repository": {
     "type": "git",
@@ -12,7 +13,8 @@
   "author": "Hubol Persson-Gordon",
   "homepage": "https://github.com/hubol/asshat-pixi#readme",
   "devDependencies": {
-    "generate-textures": "^0.1.0",
+    "concurrently": "^5.3.0",
+    "generate-textures": "^0.1.1",
     "parcel-bundler": "^1.12.4",
     "typescript": "^4.1.2"
   },

@@ -1,8 +1,9 @@
 import {createGame} from "../utils/asshat/createGame";
-import {BitmapText, Graphics} from "pixi.js";
+import {BitmapText, Graphics, Sprite} from "pixi.js";
 import {now} from "../utils/now";
 import {Key} from "../utils/browser/key";
-import {AcrobatixFont} from "./fonts";
+import {AcrobatixFont} from "../fonts";
+import {Iguana} from "../textures";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
@@ -37,4 +38,11 @@ const circle = new Graphics()
             .drawCircle(0, 0, 32)
     });
 
-game.stage.addChild(lines, circle, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));
+const iguana = new Sprite(Iguana)
+    .at(320, 240)
+    .withStep(() => {
+        if (Key.isDown("ArrowRight"))
+            iguana.x += 1;
+    });
+
+game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));

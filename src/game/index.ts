@@ -1,8 +1,9 @@
-import {loadFontsAsync} from "./fonts";
+import {loadFontsAsync} from "../fonts";
+import {loadTexturesAsync} from "../textures";
 
 async function initialize()
 {
-    await loadFontsAsync();
+    await Promise.all([loadFontsAsync(), loadTexturesAsync()]);
     require("./game.ts");
 }
 
