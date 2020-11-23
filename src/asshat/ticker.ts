@@ -3,12 +3,12 @@ export class EscapeTickerAndExecute
     constructor(readonly execute: () => void) { }
 }
 
-type AsshatTickerFn = () => void;
+type TickerFn = () => void;
 
-export class AsshatTicker
+export class Ticker
 {
-    private readonly _callbacks: AsshatTickerFn[] = [];
-    private _callbacksToRemove: AsshatTickerFn[] = [];
+    private readonly _callbacks: TickerFn[] = [];
+    private _callbacksToRemove: TickerFn[] = [];
 
     add(fn: (...params: any[]) => any): this
     {

@@ -1,5 +1,5 @@
-import {createApplication} from "../src/asshat/createApplication";
+import {createGame} from "../src/asshat/createGame";
 
-const application = createApplication({width: 640, height: 480, targetFps: 60});
-application.canvasElement.id = "gameCanvas";
-document.body.appendChild(application.canvasElement);
+const game = createGame({width: 640, height: 480, targetFps: 60});
+game.canvasElement.id = "gameCanvas";
+document.body.appendChild(game.canvasElement);
