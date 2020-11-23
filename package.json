@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A base project for browser games",
   "scripts": {
-    "run-example": "parcel src/index.html --open"
+    "serve": "parcel src/index.html --open"
   },
   "repository": {
     "type": "git",
