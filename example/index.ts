@@ -1,7 +1,8 @@
 import {createGame} from "../src/utils/asshat/createGame";
-import {Graphics} from "pixi.js";
+import {BitmapText, Graphics} from "pixi.js";
 import {Key} from "../src/utils/browser/key";
 import {now} from "../src/utils/now";
+import {AcrobatixFont, loadFontsAsync} from "./fonts";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
@@ -37,3 +38,9 @@ const circle = new Graphics()
     });
 
 game.stage.addChild(lines, circle);
+
+setTimeout(async () => {
+    await loadFontsAsync();
+    const bitmapText = new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font });
+    game.stage.addChild(bitmapText);
+});
