@@ -5,6 +5,8 @@ import {Key} from "../utils/browser/key";
 import {AcrobatixFont} from "../fonts";
 import {Iguana} from "../textures";
 import {CratePickup} from "../sounds";
+import {Jukebox} from "../utils/jukebox";
+import {Fly} from "../musics";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
@@ -49,3 +51,5 @@ const iguana = new Sprite(Iguana)
     });
 
 game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));
+
+Jukebox.play(Fly);
