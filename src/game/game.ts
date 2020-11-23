@@ -4,6 +4,7 @@ import {now} from "../utils/now";
 import {Key} from "../utils/browser/key";
 import {AcrobatixFont} from "../fonts";
 import {Iguana} from "../textures";
+import {CratePickup} from "../sounds";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
@@ -43,6 +44,8 @@ const iguana = new Sprite(Iguana)
     .withStep(() => {
         if (Key.isDown("ArrowRight"))
             iguana.x += 1;
+        if (Key.justWentDown("Space"))
+            CratePickup.play();
     });
 
 game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));

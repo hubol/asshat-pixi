@@ -1,5 +1,8 @@
 .DS_Store
 
+src/.music/
+src/.sounds/
+
 .idea/      
 .cache/
 .gen/
