@@ -1,6 +1,6 @@
 import {BitmapFont} from "pixi.js";
-import {loadBitmapFontAsync} from "../src/utils/resources/loadBitmapFont";
-import {loadTextureAsync} from "../src/utils/resources/loadTexture";
+import {loadBitmapFontAsync} from "../utils/resources/loadBitmapFont";
+import {loadTextureAsync} from "../utils/resources/loadTexture";
 
 export let AcrobatixFont: BitmapFont;
 export let AtomixFont: BitmapFont;

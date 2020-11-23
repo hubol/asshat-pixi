@@ -1,8 +1,8 @@
-import {createGame} from "../src/utils/asshat/createGame";
+import {createGame} from "../utils/asshat/createGame";
 import {BitmapText, Graphics} from "pixi.js";
-import {now} from "../src/utils/now";
-import {Key} from "../src/utils/browser/key";
-import {AcrobatixFont} from "./fonts";
+import {now} from "../utils/now";
+import {Key} from "../utils/browser/key";
+import {AcrobatixFont} from "../assets/fonts";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";

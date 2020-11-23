@@ -1,4 +1,4 @@
-import {loadFontsAsync} from "./fonts";
+import {loadFontsAsync} from "../assets/fonts";
 
 async function initialize()
 {
