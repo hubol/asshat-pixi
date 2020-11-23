@@ -9,11 +9,11 @@ export async function loadFontsAsync()
 {
     // I generated the .fnt files with a program called "AngelCode BMFont"
     AcrobatixFont = await loadBitmapFontAsync(
-        require("./fonts/Acrobatix.fnt"),
-        await loadTextureAsync(require("./fonts/Acrobatix_0.png")));
+        require("../../assets/fonts/Acrobatix.fnt"),
+        await loadTextureAsync(require("../../assets/fonts/Acrobatix_0.png")));
 
     AtomixFont = await loadBitmapFontAsync(
-        require("./fonts/Atomix.fnt"),
-        await loadTextureAsync(require("./fonts/Atomix_0.png")));
+        require("../../assets/fonts/Atomix.fnt"),
+        await loadTextureAsync(require("../../assets/fonts/Atomix_0.png")));
 }
 
