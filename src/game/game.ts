@@ -48,6 +48,8 @@ const iguana = new Sprite(Iguana)
             iguana.x += 1;
         if (Key.justWentDown("Space"))
             CratePickup.play();
+        if (Key.isDown("KeyS"))
+            iguana.scale.x *= 1.1;
     });
 
 game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));
