@@ -7,6 +7,7 @@ export let AtomixFont: BitmapFont;
 
 export async function loadFontsAsync()
 {
+    // I generated the .fnt files with a program called "AngelCode BMFont"
     AcrobatixFont = await loadBitmapFontAsync(
         require("./fonts/Acrobatix.fnt"),
         await loadTextureAsync(require("./fonts/Acrobatix_0.png")));
