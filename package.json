@@ -1,0 +1,21 @@
+{
+  "name": "asshat-pixi",
+  "version": "1.0.0",
+  "description": "A base project for browser games",
+  "scripts": {
+    "run-example": "parcel example/index.html --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hubol/asshat-pixi.git"
+  },
+  "author": "Hubol Persson-Gordon",
+  "homepage": "https://github.com/hubol/asshat-pixi#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "pixi.js": "^5.3.3"
+  }
+}
