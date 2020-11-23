@@ -2,7 +2,7 @@ import {Vector} from "../math/vector";
 import * as PIXI from "pixi.js";
 import {Container} from "pixi.js";
 import {areRectanglesOverlapping, normalizeRectangle, rectangle as createRectangle} from "../math/rectangle";
-import {AsshatTicker} from "../../asshat/ticker";
+import {AsshatTicker} from "../asshat/ticker";
 
 declare global {
     namespace PIXI {

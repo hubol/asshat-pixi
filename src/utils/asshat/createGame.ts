@@ -1,10 +1,10 @@
 import {Application, InteractionManager} from "pixi.js";
 import * as PIXI from "pixi.js";
-import {make2dCanvasSink} from "../utils/browser/make2dCanvasSink";
-import {environment} from "../utils/environment";
-import {advanceKeyListener, startKeyListener} from "../utils/browser/key";
+import {make2dCanvasSink} from "../browser/make2dCanvasSink";
+import {environment} from "../environment";
+import {advanceKeyListener, startKeyListener} from "../browser/key";
 import {AsshatTicker} from "./ticker";
-import {applyExtensions} from "../utils/applyExtensions";
+import {applyExtensions} from "../applyExtensions";
 
 type GameOptions = ConstructorParameters<typeof Application>[0]
     & { targetFps?: number, hideCursor?: boolean, allowBlurring?: boolean };

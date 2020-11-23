@@ -1,4 +1,4 @@
-import {createGame} from "../src/asshat/createGame";
+import {createGame} from "../src/utils/asshat/createGame";
 import {Graphics} from "pixi.js";
 import {Key} from "../src/utils/browser/key";
 import {now} from "../src/utils/now";
