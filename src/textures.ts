@@ -2,7 +2,7 @@ import * as PIXI from "pixi.js";
     
 // This file is generated. Do not touch.
 
-export let Iguana: PIXI.Texture = undefined as unknown as PIXI.Texture;
+export let Iguana: PIXI.Texture;
 
 
 export function loadTexturesAsync()
