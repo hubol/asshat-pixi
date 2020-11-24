@@ -9,7 +9,7 @@ export function loadTexturesAsync()
 {
     const loader = new PIXI.Loader();
 
-    const IguanaPath = require("../assets/images/iguana.png");
+    const IguanaPath = require("../../assets/images/iguana.png");
     loader.add(IguanaPath); 
 
     

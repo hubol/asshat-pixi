@@ -2,11 +2,11 @@ import {createGame} from "../utils/asshat/createGame";
 import {BitmapText, Graphics, Sprite} from "pixi.js";
 import {now} from "../utils/now";
 import {Key} from "../utils/browser/key";
-import {AcrobatixFont} from "../fonts";
-import {Iguana} from "../textures";
-import {CratePickup} from "../sounds";
+import {AcrobatixFont} from "../typedAssets/fonts";
 import {Jukebox} from "../utils/jukebox";
-import {Fly} from "../musics";
+import {Iguana} from "../typedAssets/textures";
+import {CratePickup} from "../typedAssets/sounds";
+import {Fly} from "../typedAssets/musics";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
