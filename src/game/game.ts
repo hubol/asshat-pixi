@@ -8,6 +8,7 @@ import {Iguana} from "../typedAssets/textures";
 import {CratePickup} from "../typedAssets/sounds";
 import {Fly} from "../typedAssets/musics";
 import {integralUpscaleCanvas} from "../utils/browser/integralUpscaleCanvas";
+import {hex} from "../utils/asshat/hex";
 
 const game = createGame({width: 640, height: 480, targetFps: 60});
 game.canvasElement.id = "gameCanvas";
@@ -16,7 +17,7 @@ integralUpscaleCanvas(game.canvasElement, 20);
 
 const lines = new Graphics()
     .withStep(() => {
-        lines.lineStyle(1, 0x808080);
+        lines.lineStyle(1, hex`gray`);
         if (Math.random() > 0.9)
             lines.clear();
         const x = game.width * (Math.sin(now.ms * 0.125) + 1) / 2;
@@ -54,6 +55,6 @@ const iguana = new Sprite(Iguana)
             iguana.scale.x *= 1.1;
     });
 
-game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font }));
+game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font, tint: hex`red` }));
 
 Jukebox.play(Fly);
