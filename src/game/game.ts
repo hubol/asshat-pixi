@@ -1,5 +1,5 @@
 import {createGame} from "../utils/asshat/createGame";
-import {BitmapText, Graphics, Sprite} from "pixi.js";
+import {BitmapText, Container, Graphics, Sprite} from "pixi.js";
 import {now} from "../utils/now";
 import {Key} from "../utils/browser/key";
 import {AcrobatixFont} from "../typedAssets/fonts";
@@ -55,6 +55,16 @@ const iguana = new Sprite(Iguana)
             iguana.scale.x *= 1.1;
     });
 
-game.stage.addChild(lines, circle, iguana, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font, tint: hex`red` }));
+const sprite = new Sprite(Iguana).withStep(() => sprite.x += 1);
+const container = new Container().withStep(() => {
+    if (Key.isDown("ArrowLeft"))
+        container.x--;
+});
+
+container.addChild(sprite, iguana)
+
+game.stage.addChild(lines, container, circle, new BitmapText("Welcome, special agent Sylvie.", { fontName: AcrobatixFont.font, tint: hex`red` }));
 
 Jukebox.play(Fly);
+
+setTimeout(() => sprite.destroy(), 8000);
