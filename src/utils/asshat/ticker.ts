@@ -3,22 +3,21 @@ export class EscapeTickerAndExecute
     constructor(readonly execute: () => void) { }
 }
 
-type AsshatTickerFn = () => void;
+type AsshatTickerFn = ((...params: any[]) => any) & { _removed?: boolean };
 
 export class AsshatTicker
 {
     private readonly _callbacks: AsshatTickerFn[] = [];
-    private _callbacksToRemove: AsshatTickerFn[] = [];
 
-    add(fn: (...params: any[]) => any): this
+    add(fn: AsshatTickerFn): this
     {
         this._callbacks.push(fn);
         return this;
     }
 
-    remove(fn: (...params: any[]) => any): this
+    remove(fn: AsshatTickerFn): this
     {
-        this._callbacksToRemove.push(fn);
+        fn._removed = true;
         return this;
     }
 
@@ -39,13 +38,13 @@ export class AsshatTicker
 
     private updateImpl(): void
     {
-        for (let i = 0, len = this._callbacksToRemove.length; i < len; i++)
-            this._callbacks.removeFirst(this._callbacksToRemove[i]);
-        this._callbacksToRemove.length = 0;
+        this._callbacks.filterInPlace(x => !x._removed);
 
         for (let i = 0, len = this._callbacks.length; i < len; i++)
         {
             const callback = this._callbacks[i];
+            if (callback._removed)
+                continue;
 
             try
             {
