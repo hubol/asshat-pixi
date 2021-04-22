@@ -26,7 +26,7 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "color-string": "^1.5.5",
+    "css-color-converter": "^2.0.0",
     "howler": "^2.2.1",
     "pissant": "^0.1.2",
     "pixi.js": "^5.3.3"

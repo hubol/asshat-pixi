@@ -1,4 +1,4 @@
-import colorString from "color-string";
+import { fromString } from 'css-color-converter';
 
 const pixiColorCache = {};
 function findPixiColor(cssColor) {
@@ -8,11 +8,11 @@ function findPixiColor(cssColor) {
 }
 
 function computePixiColor(cssColor) {
-    const rgbArray = colorString.get.rgb(cssColor);
-    if (!rgbArray)
+    const color = fromString(cssColor);
+    if (!color)
         return 0xffffff;
-    const hexString = colorString.to.hex(rgbArray[0], rgbArray[1], rgbArray[2]);
-    return parseInt(`0x${hexString.substring(1)}`);
+    const hexString = color.toHexString();
+    return parseInt(`0x${hexString.substring(1, 7)}`);
 }
 
 export function hex(cssColor: TemplateStringsArray) {
